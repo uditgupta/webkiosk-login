@@ -1,11 +1,3 @@
-<html>
-<head>
-</head>
-<body>
-
-
-</body>
-</html>
 <?php
 
 $MemberCode = $_POST['username'];
