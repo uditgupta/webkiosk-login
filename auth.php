@@ -5,6 +5,8 @@ define('COOKIE_FILE', 'JIITWebkiosAuth_Cookie.txt');
 class WebkioskAuth {
   private $username;
   private $password;
+
+  // Stores status of authentication/verification.
   private $authStatus;
 
   function __construct($username, $password) {
@@ -38,6 +40,10 @@ class WebkioskAuth {
     $this->authStatus = $authStatus;
   }
 
+  /**
+   * Authenticates and verifies if the supplied username and password are
+   * valid or not.
+   */
   function authenticate() {
     $ch = curl_init();
 
@@ -73,6 +79,9 @@ class WebkioskAuth {
     return $this->authStatus;
   }
 
+  /**
+   * Gets some useful user information.
+   */
   function getUserInfo() {
     if (!$this->getAuthStatus()) {
       throw new NotAuthenticatedException;
@@ -93,6 +102,9 @@ class WebkioskAuth {
     curl_close ($ch);
   }
 
+  /**
+   * Closes the session on the server.
+   */
   function logout() {
     // Logout method to close the session on the server.
     // Should be taken care of so that the Webkiosk maintainers
