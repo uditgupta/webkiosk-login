@@ -5,6 +5,7 @@ This is a PHP class which can be used to authenticate with JIIT Webkiosk (https:
 
 Read example.php to see how this can be used.
 
+nyc one broo
 
 CONTRIBUTORS
 ============
